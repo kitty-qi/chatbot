@@ -12,6 +12,7 @@ from htmlTemplates import bot_template, user_template, css
 #from transformers import pipeline
 import nltk
 nltk.download('punkt')
+nltk.download('wordnet')
 from stop_words import get_stop_words
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
