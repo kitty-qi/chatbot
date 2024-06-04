@@ -10,7 +10,7 @@ from langchain.chat_models import ChatOpenAI
 from htmlTemplates import bot_template, user_template, css
 
 #from transformers import pipeline
-
+import nltk
 from stop_words import get_stop_words
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
