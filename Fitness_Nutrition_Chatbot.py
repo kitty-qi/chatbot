@@ -29,6 +29,7 @@ import math
 
 import os
 import streamlit as st
+ai_key= st.secrets["openai_api_key"]
 
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -156,7 +157,7 @@ def get_chunk_text(text):
 def get_vector_store(text_chunks):
     
     # For OpenAI Embeddings   
-    embeddings = OpenAIEmbeddings(openai_api_key= st.secrets["openai_api_key"])
+    embeddings = OpenAIEmbeddings(openai_api_key= ai_key)
 
     vectorstore = FAISS.from_texts(texts = text_chunks, embedding = embeddings)
     
@@ -169,7 +170,7 @@ def get_conversation_chain(vector_store, max_tokens = None):
         return None
 
     # OpenAI Model
-    llm = ChatOpenAI(model = 'gpt-4-1106-preview', openai_api_key=st.secrets["openai_api_key"])
+    llm = ChatOpenAI(model = 'gpt-4-1106-preview', openai_api_key= ai_key)
 
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
 
