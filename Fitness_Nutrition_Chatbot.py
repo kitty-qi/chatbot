@@ -172,7 +172,7 @@ def get_conversation_chain(vector_store, max_tokens = None):
     # llm = ChatOpenAI(model = 'gpt-4o', openai_api_key= ai_key)
     # OpenAI Model
     if max_tokens is None:
-        max_tokens = 1000  # Set a default limit if none provided
+        max_tokens = 150  # Set a default limit if none provided
     llm = ChatOpenAI(model='gpt-4o', openai_api_key=ai_key, max_tokens=max_tokens)
 
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
