@@ -170,7 +170,7 @@ def get_conversation_chain(vector_store, max_tokens = None):
         return None
 
     # OpenAI Model
-    llm = ChatOpenAI(model = 'gpt-4-1106-vision-preview', openai_api_key= ai_key)
+    llm = ChatOpenAI(model = 'gpt-3.5-turbo', openai_api_key= ai_key)
 
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
 
