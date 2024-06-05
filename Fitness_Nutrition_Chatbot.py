@@ -169,8 +169,11 @@ def get_conversation_chain(vector_store, max_tokens = None):
         st.warning("Vector store is not initialized.")
         return None
 
+    # llm = ChatOpenAI(model = 'gpt-4o', openai_api_key= ai_key)
     # OpenAI Model
-    llm = ChatOpenAI(model = 'gpt-4o', openai_api_key= ai_key)
+    if max_tokens is None:
+        max_tokens = 1000  # Set a default limit if none provided
+    llm = ChatOpenAI(model='gpt-4o', openai_api_key=ai_key, max_tokens=max_tokens)
 
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
 
